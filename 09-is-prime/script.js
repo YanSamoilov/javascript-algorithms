@@ -10,7 +10,20 @@
 */
 
 function isPrime(n) {
-    // Напишите код здесь
+    if (n > 1) {      // Провека числа и то, что оно больше 1.
+        if ((n === 2) || (n === 3)) {
+            return true;
+        } else {
+            const sqrtN = Math.floor(Math.sqrt(n));
+        for (let i = 2; i <= sqrtN; i++) {
+            if(n % i === 0) 
+            return false;
+        }
+        }
+        return true;
+    } else {
+        return false;
+    }
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:

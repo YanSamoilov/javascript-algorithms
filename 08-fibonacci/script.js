@@ -9,7 +9,21 @@
 */
 
 function fibonacci(n) {
-    // Напишите код здесь
+    if ((typeof n === 'number') && (n >= 0)) {      // Провека числа и то, что оно больше либо равно 0.
+        let fib = 1, previous = 0, interim = 0;
+        if ((n === 0) || (n === 1)) {
+            return 0;
+        } else {
+            for(let i = 3; i <= n; i++) {
+                interim = fib;
+                fib += previous;
+                previous = interim;
+            }
+            return fib;
+        }
+    } else {
+        return 'Это не число или число меньше 0!';
+    }
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:

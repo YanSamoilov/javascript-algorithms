@@ -9,7 +9,21 @@
 */
 
 function sumOfTwo(arr, sum) {
-    // Напишите код здесь
+    if ((Array.isArray(arr)) && (typeof sum === 'number')) {
+        let isFoundSum = false;
+        firstIteration: 
+        for (let i = 0; i < arr.length; i++) {
+            for(let j = 1; j < arr.length; j++) {
+                if (sum === arr[i] + arr[j]) {
+                    isFoundSum = true;
+                    break firstIteration;
+                }
+           }
+        };
+        return isFoundSum;
+    } else {
+        return 'Введите правильные аргументы!';
+    }
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:

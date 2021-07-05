@@ -7,7 +7,17 @@
 */
 
 function capitalize(str) {
-    // Напишите код здесь
+    if ( typeof str === 'string') {
+        let arrayFromStr = str.split(' ');  // Преобразование строки в массив слов.
+        for(let i = 0; i < arrayFromStr.length; i++) {
+            // Замена элеменета в массиве с помощью метода replace, в котором изымается первая буква, делается заглавной.
+            arrayFromStr[i] = arrayFromStr[i].replace(arrayFromStr[i][0], arrayFromStr[i].charAt(0).toUpperCase());
+        }
+        return arrayFromStr.join(' ');      // Создание и возвращение строки из массива.
+    }
+    else {
+        return 'Это не строка!';
+    }
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:

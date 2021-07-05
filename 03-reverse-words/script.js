@@ -9,7 +9,12 @@
 */
 
 function reverseWords(str) {
-    // Напишите код здесь
+    if(typeof str === 'string') {
+        const strArray = str.split(' ').reverse().join(' ');    // Создание массива, переворачивание его и возвращение в строку.
+        return strArray;
+    } else {
+        return 'Это не строка!';
+    }
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:

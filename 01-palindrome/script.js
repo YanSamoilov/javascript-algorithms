@@ -14,7 +14,28 @@
 */
 
 function palindrome(str) {
-    // Напишите код здесь
+    let strArray = [], versaStrArray = [];
+    if ( typeof str === 'string') {
+        const strLowerCase = str.toLowerCase();
+        let isPalindrom = true;
+        const marks = ['.', ',', ';', ':', '!', '?', ' ', '-']; // Массив знаков препинания к исключению.
+        for (let ind = 0; ind < strLowerCase.length; ind++) {   // Перебор строки и, заполняя массив символов, исключая знаки препинания.
+            if (!marks.includes(strLowerCase[ind])) {
+                strArray.push(strLowerCase[ind]);
+            }
+        }
+        versaStrArray = strArray.concat().reverse();             // Копирование второго массива из первого и переворачивание его.
+        for (let ind= 0; ind < strArray.length; ind++) {        // Перебор и сравнение символов в двух массивах на равенство.
+            if (strArray[ind] != versaStrArray[ind]) {
+                isPalindrom = false;
+                break; 
+            }
+
+        }
+        return isPalindrom;      
+    } else {
+        return 'Это не текст!';
+    }
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:
@@ -22,6 +43,7 @@ function palindrome(str) {
 console.log(palindrome('топот')); // должно быть true
 console.log(palindrome('Saippuakivikauppias')); // true
 console.log(palindrome('привет')); // false
+console.log(palindrome('О, лета тело!')); // true
 
 /*
  * Бонус. Задача для любознательных. Пусть функция принимает на вход любую строку,
